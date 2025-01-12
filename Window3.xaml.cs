@@ -19,7 +19,7 @@ namespace TeamManager
     /// </summary>
     public partial class Window3 : Window
     {
-        public Window3()
+        public Window3(string currentButton, int? id)
         {
             InitializeComponent();
         }

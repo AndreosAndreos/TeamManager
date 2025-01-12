@@ -44,12 +44,6 @@ namespace TeamManager
     partial void DeleteTeam(Team instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
-				base(global::TeamManager.Properties.Settings.Default.TeamManagerConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public DataClasses1DataContext(string connection) : 
 				base(connection, mappingSource)
 		{

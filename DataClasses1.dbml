@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TeamManager" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=TeamManager;Integrated Security=True;Encrypt=False" SettingsObjectName="TeamManager.Properties.Settings" SettingsPropertyName="TeamManagerConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Match" Member="Matches">
     <Type Name="Match">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
