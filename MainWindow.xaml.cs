@@ -29,10 +29,6 @@ namespace TeamManager
         {
             InitializeComponent();
             DataBaseConnect();
-            
-
-<<<<<<< HEAD
-=======
         }
 
         public static void DataBaseConnect()
@@ -56,7 +52,7 @@ namespace TeamManager
                     MessageBox.Show($"Error: {ex.Message}");
                 }
             }
->>>>>>> 1987759f2a89d64f131ec859095436be61a41a70
+
         }
 
         private void TxtBoxTeam_GotFocus(object sender, RoutedEventArgs e)
