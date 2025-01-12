@@ -40,8 +40,6 @@ namespace TeamManager
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("The connection to database has been established.");
-
                 }
                 catch (SqlException sqlex) 
                 {
@@ -55,6 +53,13 @@ namespace TeamManager
 
         }
 
+        #region SetUp
+
+        private void MainWindowSetup(object sender, EventArgs e)
+        {
+
+        }
+        /*
         private void TxtBoxTeam_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TxtBoxTeam.Text == "Enter team name")
@@ -73,33 +78,43 @@ namespace TeamManager
             }
         }
 
-        public static void DataBaseConnect()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["TeamManager.Properties.Settings.TeamManagerConnectionString"].ConnectionString;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    MessageBox.Show("The connection to database has been established.");
-
-                }
-                catch (SqlException sqlex) 
-                {
-                    MessageBox.Show($"There's been a problem with establishing the database connection {sqlex.Message}");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
-            }
-        }
+        */
+        #endregion
 
         private void BtnTeam_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        private void BtnPlayer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnStat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.Show();
+        }
+
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

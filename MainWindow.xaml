@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamManager"
         mc:Ignorable="d"
-        Width="800" Height="600"
+        Width="820" Height="600"
         Title="MainWindow"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
   
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -27,18 +28,29 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGrid" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="5" BorderThickness="2" BorderBrush="Black"></DataGrid>
+        
+        <DataGrid x:Name="DataGrid" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="5" Grid.RowSpan="11" BorderThickness="3" BorderBrush="Black" 
+                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                  ></DataGrid>
+        
         <Button x:Name="BtnTeams" Click="BtnTeam_Click" Grid.Column="1" Grid.Row="1" Height="45" VerticalAlignment="Top" BorderThickness="1" Content="Team" FontSize="25" FontWeight="Black"/>
-        <Button x:Name="BtnPlayers" Click="BtnPlayers_Click" Grid.Column="1" Grid.Row="1" Height="45" VerticalAlignment="Bottom" BorderThickness="1" Content="Player" FontSize="25" FontWeight="Black"/>
-        <TextBox x:Name="TxtBoxTeam" Grid.Row="1" Grid.Column="3" Height="45" VerticalAlignment="Top" BorderThickness="1" GotFocus="TxtBoxTeam_GotFocus" LostFocus="TxtBoxTeam_LostFocus"/>
+        <Button x:Name="BtnPlayer" Click="BtnPlayer_Click" Grid.Column="1" Grid.Row="1" Height="45" VerticalAlignment="Bottom" BorderThickness="1" Content="Player" FontSize="25" FontWeight="Black"/>
+        
+        <Button x:Name="BtnMatch" Click="BtnMatch_Click" Grid.Column="1" Grid.Row="3" Height="45" VerticalAlignment="Top" BorderThickness="1" Content="Match" FontSize="25" FontWeight="Black"/>
+        <Button x:Name="BtnStat" Click="BtnStat_Click" Grid.Column="1" Grid.Row="3" Height="45" VerticalAlignment="Bottom" BorderThickness="1" Content="Stats" FontSize="25" FontWeight="Black"/>
+
+        <Button x:Name="BtnAdd" Click="BtnAdd_Click" Grid.Column="1" Grid.Row="7" Height="70" Content="ADD" FontSize="30" FontWeight="Bold" />
+        <Button x:Name="BtnDelete" Click="BtnDelete_Click" Grid.Column="1" Grid.Row="9" Height="70" Content="DELETE" FontSize="30" FontWeight="Bold" />
+        <Button x:Name="BtnUpdate" Click="BtnUpdate_Click" Grid.Column="1" Grid.Row="11" Height="70" Content="UPDATE" FontSize="30" FontWeight="Bold" />
+        
     </Grid>
 </Window>
