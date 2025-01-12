@@ -31,6 +31,32 @@ namespace TeamManager
             DataBaseConnect();
             
 
+<<<<<<< HEAD
+=======
+        }
+
+        public static void DataBaseConnect()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TeamManager.Properties.Settings.TeamManagerConnectionString"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("The connection to database has been established.");
+
+                }
+                catch (SqlException sqlex) 
+                {
+                    MessageBox.Show($"There's been a problem with establishing the database connection {sqlex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+>>>>>>> 1987759f2a89d64f131ec859095436be61a41a70
         }
 
         private void TxtBoxTeam_GotFocus(object sender, RoutedEventArgs e)
