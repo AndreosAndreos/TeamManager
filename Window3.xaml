@@ -41,7 +41,7 @@
 
         <Label x:Name="Data10Label" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Location" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <ComboBox x:Name="CmbBoxLocation" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name" />
+        <TextBox x:Name="TxtBoxData10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
 
         <Label x:Name="Data11Label" Grid.Row="3" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Score home" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>

@@ -135,6 +135,7 @@ namespace TeamManager
                 {
                     Player insertPlayer = new Player();
 
+                    insertPlayer.Team_id = (int)CmbBoxTeam.SelectedValue;
                     insertPlayer.Name = TxtBoxData00.Text;
                     insertPlayer.Position = TxtBoxData01.Text;
                     insertPlayer.Date_of_birth =  DatePickerBirth.SelectedDate.Value;
@@ -166,6 +167,7 @@ namespace TeamManager
                     var insertPlayer = dataContext.Players.First(t => t.ID == playerId);
                     if (insertPlayer != null)
                     {
+                        insertPlayer.Team_id = (int)CmbBoxTeam.SelectedValue;
                         insertPlayer.Name = TxtBoxData00.Text;
                         insertPlayer.Position = TxtBoxData01.Text;
                         insertPlayer.Date_of_birth = DatePickerBirth.SelectedDate.Value;
