@@ -116,21 +116,25 @@ namespace TeamManager
                 case "team":
                     Window1 window1 = new Window1(currentButton, null);
                     window1.Show();
+                    window1.Closed += (s, args) => ShowTeams();
                     break;
 
                 case "player":
                     Window2 window2 = new Window2(currentButton, null);
                     window2.Show();
+                    window2.Closed += (s, args) => ShowPlayers();
                     break;
 
                 case "match":
                     Window3 window3 = new Window3(currentButton, null);
                     window3.Show();
+                    window3.Closed += (s, args) => ShowMatches();
                     break;
 
                 case "stat":
                     Window4 window4 = new Window4(currentButton, null);
                     window4.Show();
+                    window4.Closed += (s, args) => ShowStats();
                     break;
 
                 default:
@@ -140,6 +144,11 @@ namespace TeamManager
         }
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            if (currentButton == string.Empty || selectedRow == null)
+            {
+                MessageBox.Show("Select a table and a record to update.", "Record not selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             try
             {
                 var selectedRecord = selectedRow as dynamic;
@@ -151,25 +160,25 @@ namespace TeamManager
                     {
                         Window1 window1 = new Window1(currentButton,selectedRecordId);
                         window1.Show();
-                        ShowTeams();
+                        window1.Closed += (s, args) => ShowTeams();                     // reakcja na zamkniecie okna (WYMAGA SUBSKRYBOWANIA I OBSLUGI PRZEZ DELEGATA)
                     }
                     else if (currentButton == "player")
                     {
                         Window2 window2 = new Window2(currentButton, selectedRecordId);
                         window2.Show();
-                        ShowPlayers();
+                        window2.Closed += (s, args) => ShowPlayers();
                     }
                     if (currentButton == "match")
                     {
                         Window3 window3 = new Window3(currentButton, selectedRecordId);
                         window3.Show();
-                        ShowMatches();
+                        window3.Closed += (s, args) => ShowMatches();
                     }
                     if (currentButton == "stat")
                     {
                         Window4 window4 = new Window4(currentButton, selectedRecordId);
                         window4.Show();
-                        ShowStats();
+                        window4.Closed += (s, args) => ShowStats();
                     }
                 }
                 else
@@ -189,6 +198,11 @@ namespace TeamManager
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (currentButton == string.Empty || selectedRow == null)
+            {
+                MessageBox.Show("Select a table and a record to update.", "Record not selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             try
             {
                 var selectedRecord = selectedRow as dynamic;

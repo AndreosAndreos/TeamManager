@@ -34,22 +34,32 @@
         <TextBox x:Name="TxtBoxData01" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
         <Label x:Name="Data02Label" Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Date of birth" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData02" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-        
+        <DatePicker x:Name="DatePickerBirth" SelectedDateFormat="Short" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
+         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+                
         <Label x:Name="Data10Label" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Nationality" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
         <TextBox x:Name="TxtBoxData10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
         <Label x:Name="Data11Label" Grid.Row="3" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Salary" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
         <TextBox x:Name="TxtBoxData11" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-        
-        
-        <Label x:Name="Data20Label" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
+        <Label x:Name="Data12Label" Grid.Row="3" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
+                Content ="Team" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
+        <ComboBox x:Name="CmbBoxTeam" Grid.Row="3" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name" >
+
+        </ComboBox>
+
+            <Label x:Name="Data20Label" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Contract start" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData20" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+        <DatePicker x:Name="DatePickerContractStart" SelectedDateFormat="Short" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+        
         <Label x:Name="Data21Label" Grid.Row="5" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Contract end" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData21" Grid.Row="5" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+        <DatePicker x:Name="DatePickerContractEnd" SelectedDateFormat="Short" Grid.Row="5" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
 
+        <Button x:Name="BtnSave" Click="BtnSave_Click" Grid.Column="5" Grid.Row="5" Content="Save" FontSize="30" FontWeight="Bold" Background="Green" Height="45" Width="190" VerticalAlignment="Top"/>
+        <Button x:Name="BtnAbort" Click="BtnAbort_Click" Grid.Column="5" Grid.Row="5" Content="Abort" FontSize="30" FontWeight="Bold" Background="Red" Height="45" Width="190" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

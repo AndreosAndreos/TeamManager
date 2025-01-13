@@ -87,35 +87,67 @@ namespace TeamManager
                 return;
             }
 
-            try
+            if (teamId == null)
             {
-                var teamUpdate = dataContext.Teams.First(t => t.ID == teamId);
-                if (teamUpdate != null)
+                try
                 {
-                    teamUpdate.Name = TxtBoxData00.Text;
-                    teamUpdate.Coach = TxtBoxData01.Text;
-                    teamUpdate.Founded_date = DatePickerFounded.SelectedDate.Value;
-                    teamUpdate.League = TxtBoxData10.Text;
-                    teamUpdate.Home_town = TxtBoxData11.Text;
+                    Team insertTeam = new Team();
+                    
+                    insertTeam.Name = TxtBoxData00.Text;
+                    insertTeam.Coach = TxtBoxData01.Text;
+                    insertTeam.Founded_date = DatePickerFounded.SelectedDate.Value;
+                    insertTeam.League = TxtBoxData10.Text;
+                    insertTeam.Home_town = TxtBoxData11.Text;
 
+                    dataContext.Teams.InsertOnSubmit(insertTeam);
                     dataContext.SubmitChanges();
 
-                    MessageBox.Show("Team updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Team added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Close();
                 }
-                else
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Team not found for the provided ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"Couldn't connect to database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Something went wrong: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
-            catch (SqlException ex)
+            else if (teamId != null)
             {
-                MessageBox.Show($"Couldn't connect to database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                try
+                {
+                    var teamUpdate = dataContext.Teams.First(t => t.ID == teamId);
+                    if (teamUpdate != null)
+                    {
+                        teamUpdate.Name = TxtBoxData00.Text;
+                        teamUpdate.Coach = TxtBoxData01.Text;
+                        teamUpdate.Founded_date = DatePickerFounded.SelectedDate.Value;
+                        teamUpdate.League = TxtBoxData10.Text;
+                        teamUpdate.Home_town = TxtBoxData11.Text;
+
+                        dataContext.SubmitChanges();
+
+                        MessageBox.Show("Team updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Team not found for the provided ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Couldn't connect to database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Something went wrong: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Something went wrong: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            this.Close();
         }
 
         private void BtnAbort_Click(object sender, RoutedEventArgs e)
