@@ -39,6 +39,8 @@ namespace TeamManager
             DataBaseConnect();
             
             dataContext = new DataClasses1DataContext(connectionString);
+
+            //MessageBox.Show($"Data can be sorted by pressing the column name", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         public void DataBaseConnect()

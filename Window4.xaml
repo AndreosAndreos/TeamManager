@@ -27,11 +27,11 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Label x:Name="Data00Label" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Match ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData00" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+               Content ="Match" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
+        <ComboBox x:Name="CmbBoxMatch" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name"/>
         <Label x:Name="Data01Label" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Player ID" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData01" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+               Content ="Player" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
+        <ComboBox x:Name="CmbBoxPlayer" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name"/>
         <Label x:Name="Data02Label" Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Goals" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
         <TextBox x:Name="TxtBoxData02" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
@@ -49,10 +49,7 @@
         <Label x:Name="Data20Label" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Minutes played" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
         <TextBox x:Name="TxtBoxData20" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-        <Label x:Name="Data21Label" Grid.Row="5" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"/>
-        <TextBox x:Name="TxtBoxData21" Grid.Row="5" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-        <Label x:Name="Data22Label" Grid.Row="5" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"/>
-        <TextBox x:Name="TxtBoxData22" Grid.Row="5" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-
+        <Button x:Name="BtnSave" Click="BtnSave_Click" Grid.Column="3" Grid.Row="5" Height="70" Content="Save" FontSize="30" FontWeight="Bold" Background="Green"/>
+        <Button x:Name="BtnAbort" Click="BtnAbort_Click" Grid.Column="5" Grid.Row="5" Height="70" Content="Abort" FontSize="30" FontWeight="Bold" Background="Red"/>
     </Grid>
 </Window>

@@ -152,6 +152,12 @@ namespace TeamManager
                 MessageBox.Show($"Score can only be a number", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            if(CmbBoxTeamHome.SelectedIndex == CmbBoxTeamAway.SelectedIndex)
+            {
+                MessageBox.Show($"The team cannot play against itself", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             int scoreHome = Convert.ToInt32(TxtBoxData11.Text);
             int scoreAway = Convert.ToInt32(TxtBoxData12.Text);
             if (scoreHome < 0 || scoreAway < 0)
