@@ -142,44 +142,39 @@ namespace TeamManager
         {
             try
             {
+                var selectedRecord = selectedRow as dynamic;
+                int selectedRecordId = selectedRecord.ID;
+
                 if (selectedRow != null)
                 {
                     if (currentButton == "team")
                     {
-                        var selectedRecord = selectedRow as dynamic;
-                        int selectedRecordId = selectedRecord.ID;
-
                         Window1 window1 = new Window1(currentButton,selectedRecordId);
                         window1.Show();
+                        ShowTeams();
                     }
                     else if (currentButton == "player")
                     {
-                        var selectedRecord = selectedRow as dynamic;
-                        int selectedRecordId = selectedRecord.ID;
-
                         Window2 window2 = new Window2(currentButton, selectedRecordId);
                         window2.Show();
+                        ShowPlayers();
                     }
                     if (currentButton == "match")
                     {
-                        var selectedRecord = selectedRow as dynamic;
-                        int selectedRecordId = selectedRecord.ID;
-
                         Window3 window3 = new Window3(currentButton, selectedRecordId);
                         window3.Show();
+                        ShowMatches();
                     }
                     if (currentButton == "stat")
                     {
-                        var selectedRecord = selectedRow as dynamic;
-                        int selectedRecordId = selectedRecord.ID;
-
                         Window4 window4 = new Window4(currentButton, selectedRecordId);
                         window4.Show();
+                        ShowStats();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Select a record to delete.", "Record not selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Select a record to update.", "Record not selected", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (SqlException)
@@ -196,6 +191,9 @@ namespace TeamManager
         {
             try
             {
+                var selectedRecord = selectedRow as dynamic;
+                int selectedRecordId = selectedRecord.ID;
+
                 if (selectedRow != null)
                 {
                     var confirmResult = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -204,9 +202,6 @@ namespace TeamManager
                     {
                         if (currentButton == "team")
                         {
-                            var selectedRecord = selectedRow as dynamic;
-                            int selectedRecordId = selectedRecord.ID;
-
                             var teamToDelete = dataContext.Teams.SingleOrDefault(t => t.ID == selectedRecordId);
                             if (teamToDelete != null)
                             {
@@ -218,9 +213,6 @@ namespace TeamManager
                         }
                         else if (currentButton == "player")
                         {
-                            var selectedRecord = selectedRow as dynamic;
-                            int selectedRecordId = selectedRecord.ID;
-
                             var playerToDelete = dataContext.Players.SingleOrDefault(p => p.ID == selectedRecordId);
                             if (playerToDelete != null)
                             {
@@ -232,9 +224,6 @@ namespace TeamManager
                         }
                         else if (currentButton == "match")
                         {
-                            var selectedRecord = selectedRow as dynamic;
-                            int selectedRecordId = selectedRecord.ID;
-
                             var matchToDelete = dataContext.Matches.SingleOrDefault(p => p.ID == selectedRecordId);
                             if (matchToDelete != null)
                             {
@@ -246,9 +235,6 @@ namespace TeamManager
                         }
                         else if (currentButton == "stat")
                         {
-                            var selectedRecord = selectedRow as dynamic;
-                            int selectedRecordId = selectedRecord.ID;
-
                             var statToDelete = dataContext.Statistics.SingleOrDefault(p => p.ID == selectedRecordId);
                             if (statToDelete != null)
                             {

@@ -44,7 +44,6 @@ namespace TeamManager
 
         private void ShowTeam(int id)
         {
-
             try
             {
                 var teamUpdate = dataContext.Teams.SingleOrDefault(team => team.ID == id);
@@ -53,7 +52,7 @@ namespace TeamManager
                 {
                     TxtBoxData00.Text = teamUpdate.Name;
                     TxtBoxData01.Text = teamUpdate.Coach;
-                    TxtBoxData02.Text = teamUpdate.Founded_date.ToString("yyyy-MM-dd");
+                    DatePickerFounded.SelectedDate = teamUpdate.Founded_date;
                     TxtBoxData10.Text = teamUpdate.League;
                     TxtBoxData11.Text = teamUpdate.Home_town;
                 }
@@ -74,19 +73,15 @@ namespace TeamManager
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex(@"^[a-zA-Z]+$");
+            Regex regex = new Regex(@"^[a-zA-Z\s]+$");
             Regex regexData = new Regex(@"^\d{4}-\d{2}-\d{2}$");
 
-            string dataPart = TxtBoxData02.Text.ToString();
-            MessageBox.Show(dataPart);
-            dataPart.Substring(0, 10);
-
-            if(regexData.IsMatch(dataPart))
+            if (DatePickerFounded.SelectedDate == null)
             {
-                MessageBox.Show($"Enter a date in format YYYY-MM-DD", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Please select a valid date.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            else if (!regex.IsMatch(TxtBoxData00.Text) || !regex.IsMatch(TxtBoxData01.Text) || !regex.IsMatch(TxtBoxData10.Text) || !regex.IsMatch(TxtBoxData11.Text))
+            if (!regex.IsMatch(TxtBoxData00.Text) || !regex.IsMatch(TxtBoxData01.Text) || !regex.IsMatch(TxtBoxData10.Text) || !regex.IsMatch(TxtBoxData11.Text))
             {
                 MessageBox.Show($"Only letters are accepted", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -99,7 +94,7 @@ namespace TeamManager
                 {
                     teamUpdate.Name = TxtBoxData00.Text;
                     teamUpdate.Coach = TxtBoxData01.Text;
-                    teamUpdate.Founded_date = DateTime.Parse(TxtBoxData02.Text);
+                    teamUpdate.Founded_date = DatePickerFounded.SelectedDate.Value;
                     teamUpdate.League = TxtBoxData10.Text;
                     teamUpdate.Home_town = TxtBoxData11.Text;
 
@@ -120,7 +115,7 @@ namespace TeamManager
             {
                 MessageBox.Show($"Something went wrong: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
+            this.Close();
         }
 
         private void BtnAbort_Click(object sender, RoutedEventArgs e)

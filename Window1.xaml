@@ -37,7 +37,7 @@
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
         <Label x:Name="Data02Label" Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
                Content ="Founded date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData02" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
+        <DatePicker x:Name="DatePickerFounded" SelectedDateFormat="Short" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
 
         <Label x:Name="Data10Label" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray" 
