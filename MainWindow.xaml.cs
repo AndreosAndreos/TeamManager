@@ -21,7 +21,7 @@ using System.Data.Linq;
 namespace TeamManager
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// The program main window with DataGrid for presenting data stored in the database as well as buttons transfering to diferent CRUD windows
     /// </summary>
     public partial class MainWindow : Window
     {

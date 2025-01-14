@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace TeamManager
 {
     /// <summary>
-    /// Interaction logic for Window3.xaml
+    /// Window for performig matches insertions and updating the selected row in MainWindow
     /// </summary>
     public partial class Window3 : Window
     {

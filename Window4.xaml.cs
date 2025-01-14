@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace TeamManager
 {
     /// <summary>
-    /// Interaction logic for Window4.xaml
+    /// Window for performig statistics insertions and updating the selected row in MainWindow
     /// </summary>
     public partial class Window4 : Window
     {

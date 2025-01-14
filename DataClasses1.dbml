@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TeamManager" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=TeamManager;Integrated Security=True;Encrypt=False" SettingsObjectName="TeamManager.Properties.Settings" SettingsPropertyName="TeamManagerConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Match" Member="Matches">
     <Type Name="Match">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -53,6 +54,14 @@
       <Association Name="Team_Match" Member="Matches" ThisKey="ID" OtherKey="Team_home_id" Type="Match" />
       <Association Name="Team_Match1" Member="Matches1" ThisKey="ID" OtherKey="Team_away_id" Type="Match" />
       <Association Name="Team_Player" Member="Players" ThisKey="ID" OtherKey="Team_id" Type="Player" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

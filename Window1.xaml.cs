@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace TeamManager
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Window for performig team insertions and updating the selected row in MainWindow
     /// </summary>
     public partial class Window1 : Window
     {
