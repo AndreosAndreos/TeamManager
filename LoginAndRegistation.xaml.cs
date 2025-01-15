@@ -49,8 +49,8 @@ namespace TeamManager
 
                                 if (VerifyPassword(password, storedHash))
                                 {
-                                    MessageBox.Show($"Login successful! Role: {role}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                                    MainWindow mainWindow = new MainWindow();
+                                    MessageBox.Show($"Login successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    MainWindow mainWindow = new MainWindow(role);
                                     mainWindow.Show();
                                     this.Close();
                                 }
@@ -112,6 +112,8 @@ namespace TeamManager
 
                         insertCommand.ExecuteNonQuery();
                         MessageBox.Show("Registration successful! You can now log in.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        TxtboxLogin.Clear();
+                        TxtboxPassword.Clear();
                     }
                 }
             }

@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-using System.Data.Linq;
+using Microsoft.Win32;
+using System.IO;
+using System.Globalization;
+using System.Windows.Markup;
+using CsvHelper;
 
 namespace TeamManager
 {
@@ -33,12 +26,14 @@ namespace TeamManager
 
         private object selectedRow;
 
-        public MainWindow()
+        public MainWindow(int userRole)
         {
             InitializeComponent();
             DataBaseConnect();
             
             dataContext = new DataClasses1DataContext(connectionString);
+
+            RoleUsableButtons(userRole);
 
             //MessageBox.Show($"Data can be sorted by pressing the column name", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
@@ -59,6 +54,16 @@ namespace TeamManager
                 {
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
+            }
+        }
+
+        public void RoleUsableButtons(int userRole)
+        {
+            if (userRole == 2) // user
+            {
+                BtnAdd.Visibility = Visibility.Hidden;
+                BtnDelete.Visibility = Visibility.Hidden;
+                BtnUpdate.Visibility = Visibility.Hidden;
             }
         }
 
@@ -109,7 +114,39 @@ namespace TeamManager
             ShowStats();
         }
         #endregion
+        private void BtnExportCSV_Click(object sender, RoutedEventArgs e)
+        {
+            if(currentButton == string.Empty)
+            {
+                MessageBox.Show("Please select a table.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv",
+                FileName = "output.csv"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    using (var writer = new StreamWriter(saveFileDialog.FileName))
+                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    {
+                        csv.WriteRecords(DataGrid.ItemsSource);
+                    }
+
+                    MessageBox.Show("Expport succesful.","Information",MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("There's been an error in writing the csv file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+            }
+        }
         #region ButtonModification
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
