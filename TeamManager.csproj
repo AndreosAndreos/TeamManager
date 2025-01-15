@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginAndRegistation.xaml.cs">
+      <DependentUpon>LoginAndRegistation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="TeamManagerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,6 +98,10 @@
     <Compile Include="Window4.xaml.cs">
       <DependentUpon>Window4.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginAndRegistation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
