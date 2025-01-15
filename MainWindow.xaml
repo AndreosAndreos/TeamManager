@@ -5,54 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamManager"
         mc:Ignorable="d"
-        Width="820" Height="600"
         Title="MainWindow"
+        Width="800" Height="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
-  
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-        </Grid.ColumnDefinitions>
+
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="CurrentlyShowing"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="BtnTeams" Click="BtnTeam_Click" Width="120" Height="50" Margin="5" 
+                    Content="Team" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="BtnPlayer" Click="BtnPlayer_Click" Width="120" Height="50" Margin="5" 
+                    Content="Player" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="BtnMatch" Click="BtnMatch_Click" Width="120" Height="50" Margin="5" 
+                    Content="Match" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="BtnStat" Click="BtnStat_Click" Width="120" Height="50" Margin="5" 
+                    Content="Stats" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
 
-        <DataGrid x:Name="DataGrid"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="5" Grid.RowSpan="11" BorderThickness="3" BorderBrush="Black" 
-                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionChanged="DataGrid_SelectionChanged"
-                  ></DataGrid>
-        
-        <Button x:Name="BtnTeams" Click="BtnTeam_Click" Grid.Column="1" Grid.Row="1" Height="45" VerticalAlignment="Top" BorderThickness="1" Content="Team" FontSize="25" FontWeight="Black"/>
-        <Button x:Name="BtnPlayer" Click="BtnPlayer_Click" Grid.Column="1" Grid.Row="1" Height="45" VerticalAlignment="Bottom" BorderThickness="1" Content="Player" FontSize="25" FontWeight="Black"/>
-        
-        <Button x:Name="BtnMatch" Click="BtnMatch_Click" Grid.Column="1" Grid.Row="3" Height="45" VerticalAlignment="Top" BorderThickness="1" Content="Match" FontSize="25" FontWeight="Black"/>
-        <Button x:Name="BtnStat" Click="BtnStat_Click" Grid.Column="1" Grid.Row="3" Height="45" VerticalAlignment="Bottom" BorderThickness="1" Content="Stats" FontSize="25" FontWeight="Black"/>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button x:Name="BtnAdd" Click="BtnAdd_Click" Grid.Column="1" Grid.Row="7" Height="70" Content="ADD" FontSize="30" FontWeight="Bold" />
-        <Button x:Name="BtnDelete" Click="BtnDelete_Click" Grid.Column="1" Grid.Row="9" Height="70" Content="DELETE" FontSize="30" FontWeight="Bold" />
-        <Button x:Name="BtnUpdate" Click="BtnUpdate_Click" Grid.Column="1" Grid.Row="11" Height="70" Content="UPDATE" FontSize="30" FontWeight="Bold" />
-        
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BtnAdd" Click="BtnAdd_Click" Width="135" Height="70" Margin="5" 
+                        Content="ADD" FontSize="25" FontWeight="Bold" />
+                <Button x:Name="BtnDelete" Click="BtnDelete_Click" Width="135" Height="70" Margin="5" 
+                        Content="DELETE" FontSize="25" FontWeight="Bold" />
+                <Button x:Name="BtnUpdate" Click="BtnUpdate_Click" Width="135" Height="70" Margin="5" 
+                        Content="UPDATE" FontSize="25" FontWeight="Bold" />
+            </StackPanel>
+
+            <DataGrid x:Name="DataGrid" Grid.Column="1" Margin="5" 
+                      HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" 
+                      SelectionChanged="DataGrid_SelectionChanged" 
+                      BorderThickness="2" BorderBrush="Black" />
+        </Grid>
     </Grid>
 </Window>

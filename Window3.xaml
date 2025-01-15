@@ -5,53 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamManager"
         mc:Ignorable="d"
-        Title="Match" Height="450" Width="800">
+        Title="Match" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
 
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="10"/>
-        </Grid.ColumnDefinitions>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="Data00Label" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Home team" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <ComboBox x:Name="CmbBoxTeamHome" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name" />
 
-        <Label x:Name="Data01Label" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Away team" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <ComboBox x:Name="CmbBoxTeamAway" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" SelectedValuePath="ID" DisplayMemberPath="Name" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label x:Name="Data02Label" Grid.Row="1" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Match date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <DatePicker x:Name="DatePickerMatch" SelectedDateFormat="Short" Grid.Row="1" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
+            <Label x:Name="Data00Label" Height="45" Background="Gray" 
+                   Content="Home team" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <ComboBox x:Name="CmbBoxTeamHome" Height="45" Background="LightGray" 
+                      SelectedValuePath="ID" DisplayMemberPath="Name" FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
 
-        <Label x:Name="Data10Label" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Location" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5">
+            <Label x:Name="Data01Label" Height="45" Background="Gray" 
+                   Content="Away team" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <ComboBox x:Name="CmbBoxTeamAway" Height="45" Background="LightGray" 
+                      SelectedValuePath="ID" DisplayMemberPath="Name" FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
 
-        <Label x:Name="Data11Label" Grid.Row="3" Grid.Column="3" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Score home" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData11" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
-        <Label x:Name="Data12Label" Grid.Row="3" Grid.Column="5" VerticalAlignment="Top" Height="45" BorderThickness="1" Background="Gray"
-               Content ="Score away" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="arial"/>
-        <TextBox x:Name="TxtBoxData12" Grid.Row="3" Grid.Column="5" VerticalAlignment="Bottom" Height="45" BorderThickness="1" Background="LightGray" />
+        <StackPanel Grid.Row="0" Grid.Column="2" Margin="5">
+            <Label x:Name="Data02Label" Height="45" Background="Gray" 
+                   Content="Match date" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <DatePicker x:Name="DatePickerMatch" SelectedDateFormat="Short" Height="45" Background="LightGray" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                        FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
 
-        <Button x:Name="BtnSave" Click="BtnSave_Click" Grid.Column="1" Grid.Row="5" Height="70" Content="Save" FontSize="30" FontWeight="Bold" Background="Green"/>
-        <Button x:Name="BtnAbort" Click="BtnAbort_Click" Grid.Column="3" Grid.Row="5" Height="70" Content="Abort" FontSize="30" FontWeight="Bold" Background="Red"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <Label x:Name="Data10Label" Height="45" Background="Gray" 
+                   Content="Location" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <TextBox x:Name="TxtBoxData10" Height="45" Background="LightGray" 
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                     FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
 
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5">
+            <Label x:Name="Data11Label" Height="45" Background="Gray" 
+                   Content="Score home" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <TextBox x:Name="TxtBoxData11" Height="45" Background="LightGray" 
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                     FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="5">
+            <Label x:Name="Data12Label" Height="45" Background="Gray" 
+                   Content="Score away" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   FontSize="22" FontFamily="Arial"/>
+            <TextBox x:Name="TxtBoxData12" Height="45" Background="LightGray" 
+                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                     FontSize="18" FontFamily="Times New Roman"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="BtnSave" Click="BtnSave_Click" Width="150" Height="70" Margin="10" 
+                    Content="Save" FontSize="30" FontWeight="Bold" Background="Green"/>
+            <Button x:Name="BtnAbort" Click="BtnAbort_Click" Width="150" Height="70" Margin="10" 
+                    Content="Abort" FontSize="30" FontWeight="Bold" Background="Red"/>
+        </StackPanel>
     </Grid>
 </Window>
