@@ -102,13 +102,23 @@ namespace TeamManager
                         }
                     }
 
+                    MessageBoxResult result = MessageBox.Show(
+                    "Do you want to create a User account? (Click 'Yes' for User, 'No' for Analyst)",
+                    "Choose Role",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                    );
+
+                    int role = (result == MessageBoxResult.Yes) ? 2 : 3; // Role 2 for User, 3 for Analyst
+
+
                     string hashedPassword = HashPassword(password);
                     string insertQuery = "INSERT INTO Users (UserName, PasswordHash, Role) VALUES (@UserName, @PasswordHash, @Role)";
                     using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
                     {
                         insertCommand.Parameters.AddWithValue("@UserName", username);
                         insertCommand.Parameters.AddWithValue("@PasswordHash", hashedPassword);
-                        insertCommand.Parameters.AddWithValue("@Role", 2);
+                        insertCommand.Parameters.AddWithValue("@Role", role);
 
                         insertCommand.ExecuteNonQuery();
                         MessageBox.Show("Registration successful! You can now log in.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
